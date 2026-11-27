@@ -27,7 +27,15 @@ const rows = album.tracks.map((track, index) => {
     button.append(span);
   }
   button.addEventListener("click", () => index === selected ? togglePlayback() : select(index, true));
-  item.append(button);
+  const details = document.createElement("details");
+  details.className = "track-details";
+  const summary = document.createElement("summary");
+  summary.title = "Song description";
+  summary.setAttribute("aria-label", `Description for ${track.title}`);
+  const description = document.createElement("p");
+  description.textContent = track.description || "Song description coming soon.";
+  details.append(summary, description);
+  item.append(button, details);
   get("tracklist").append(item);
   return button;
 });
