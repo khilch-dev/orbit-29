@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="Orbit 29"
-    />
+    <meta name="description" content="Orbit 29" />
     <meta name="page-type" content="product" />
     <meta name="site-kind" content="other" />
     <meta name="theme-color" content="#1f1b1a" />
@@ -16,12 +13,18 @@
     <script defer src="player.js"></script>
   </head>
   <body>
+    <div class="sky" aria-hidden="true">
+      <span class="sky-twinkles"></span>
+    </div>
     <a class="skip" href="#main">Skip to album</a>
     <header class="wrap masthead">
-      <a class="wordmark" href="./"
-        ><span class="orbit" aria-hidden="true"></span>Orbit 29</a
+      <a class="wordmark" href="./">
+        <span class="orbit" aria-hidden="true"></span>Orbit 29</a
       >
-      <a class="label" href="#tracks">tracklist</a>
+      <nav class="masthead-nav" aria-label="Album">
+        <a class="label" href="#tracks">tracklist</a>
+        <a class="label" href="#video">video</a>
+      </nav>
     </header>
     <main id="main" class="wrap layout" data-enter>
       <img
@@ -29,7 +32,7 @@
         src="assets/orbit_29.png"
         width="1368"
         height="1370"
-        alt="Orbit 29 cover art, with Saturn above two people lounging on a golden beach."
+        alt="2 people sit at beach in space"
       />
       <section class="album" aria-labelledby="title">
         <p class="eyebrow"><span></span>mark truckerburg</p>
@@ -40,6 +43,14 @@
         </div>
         <ol id="tracklist"></ol>
         <noscript>Enable JavaScript to use the album player.</noscript>
+      </section>
+
+      <section id="video" class="album-video" aria-labelledby="video-title">
+        <h2 id="video-title">deep dive in orbit 29 (must watch)</h2>
+        <br>
+        <div class="album-video-frame">
+          <p>extreme deep dive on orbit 29</p>
+        </div>
       </section>
     </main>
     <footer class="deck">
