@@ -1,6 +1,7 @@
 const get = id => document.getElementById(id);
 const audio = get("audio");
 const seek = get("seek");
+const volume = get("volume");
 const toggle = get("toggle");
 const status = get("status");
 let selected = 0;
@@ -52,7 +53,13 @@ function play() {
   });
 }
 
+function setTrackTheme(theme) {
+  if (theme) document.body.dataset.trackTheme = theme;
+  else delete document.body.dataset.trackTheme;
+}
+
 function select(index, autoplay) {
+  setTrackTheme();
   selected = index;
   const track = album.tracks[index];
   audio.src = track.file;
@@ -101,11 +108,28 @@ audio.addEventListener("loadedmetadata", () => {
   get("duration").textContent = time(audio.duration);
   updateTime();
 });
+volume.addEventListener("input", () => {
+  audio.volume = Number(volume.value) / 100;
+  volume.value = Math.round(audio.volume * 100);
+});
+audio.addEventListener("volumechange", () => {
+  volume.value = Math.round(audio.volume * 100);
+});
 audio.addEventListener("timeupdate", updateTime);
 audio.addEventListener("play", renderPlayback);
-audio.addEventListener("pause", renderPlayback);
-audio.addEventListener("error", showError);
+audio.addEventListener("playing", () => {
+  if (!audio.paused && !audio.ended) setTrackTheme(album.tracks[selected].theme);
+});
+audio.addEventListener("pause", () => {
+  if (audio.paused) setTrackTheme();
+  renderPlayback();
+});
+audio.addEventListener("error", () => {
+  setTrackTheme();
+  showError();
+});
 audio.addEventListener("ended", () => {
+  setTrackTheme();
   if (selected + 1 < rows.length) select(selected + 1, true);
   else renderPlayback();
 });

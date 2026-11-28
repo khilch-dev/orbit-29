@@ -15,15 +15,35 @@
   <body>
     <div class="sky" aria-hidden="true">
       <span class="sky-twinkles"></span>
+      <div class="sky-void"><span class="sky-saturn"></span></div>
+      <div class="sky-restoration">
+        <div class="sky-streaks">
+          <span style="--lane: 11%; --length: 120px; --speed: 3.8s; --phase: -1.1s"></span>
+          <span style="--lane: 18%; --length: 68px; --speed: 4.5s; --phase: -3.1s"></span>
+          <span style="--lane: 29%; --length: 155px; --speed: 3.1s; --phase: -2.4s"></span>
+          <span style="--lane: 38%; --length: 88px; --speed: 4.1s; --phase: -1.3s"></span>
+          <span style="--lane: 49%; --length: 114px; --speed: 3.7s; --phase: -2.8s"></span>
+          <span style="--lane: 57%; --length: 172px; --speed: 3.3s; --phase: -0.5s"></span>
+          <span style="--lane: 68%; --length: 73px; --speed: 4.2s; --phase: -1.6s"></span>
+          <span style="--lane: 76%; --length: 132px; --speed: 3.6s; --phase: -2.2s"></span>
+          <span style="--lane: 85%; --length: 99px; --speed: 4.4s; --phase: -3.4s"></span>
+        </div>
+      </div>
+      <div class="sky-jazz"><span class="jazz-record"></span></div>
+      <div class="sky-wizard">
+        <div class="wizard-black-hole"></div>
+      </div>
     </div>
     <a class="skip" href="#main">Skip to album</a>
     <header class="wrap masthead">
       <a class="wordmark" href="./">
         <span class="orbit" aria-hidden="true"></span>Orbit 29</a
       >
-      <nav class="masthead-nav" aria-label="Album">
-        <a class="label" href="#tracks">tracklist</a>
-        <a class="label" href="#video">video</a>
+      <nav class="masthead-nav" aria-label="Main navigation">
+        <a class="label" href="#tracks">Tracklist</a>
+        <a class="label" href="video.html">Video</a>
+        <a class="label" href="merch.html">Merch</a>
+        <a class="label" href="artist.html">Artist</a>
       </nav>
     </header>
     <main id="main" class="wrap layout" data-enter>
@@ -38,19 +58,11 @@
         <p class="eyebrow"><span></span>mark truckerburg</p>
         <h1 id="title">Orbit <em>29</em></h1>
         <div class="track-head" id="tracks">
-          <h2>tracklist</h2>
+          <h2>Disc A</h2>
           <span id="edition" class="label"></span>
         </div>
         <ol id="tracklist"></ol>
         <noscript>Enable JavaScript to use the album player.</noscript>
-      </section>
-
-      <section id="video" class="album-video" aria-labelledby="video-title">
-        <h2 id="video-title">deep dive in orbit 29 (must watch)</h2>
-        <br>
-        <div class="album-video-frame">
-          <p>extreme deep dive on orbit 29</p>
-        </div>
       </section>
     </main>
     <footer class="deck">
@@ -79,6 +91,10 @@
             aria-label="Playback position"
           /><span id="duration">0:00</span>
         </div>
+        <label class="volume">
+          <span class="label" aria-hidden="true">Vol</span>
+          <input id="volume" type="range" min="0" max="100" value="100" aria-label="Volume" />
+        </label>
         <p id="status" role="status" hidden></p>
         <audio id="audio" preload="metadata"></audio>
       </div>
